@@ -1,0 +1,463 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+         body{
+             font-size: 13px;
+             font-family: Verdana, Geneva, sans-serif;
+             margin:0 auto;
+         }
+
+         #main{
+             display:flex;
+             flex-wrap: wrap; /* por defecto es flex-wrap: nowrap; */
+         }
+         .block{
+             margin:3px;
+             height:450px;
+             background-color:white;
+         }
+         .text-style1, .text-style2{
+             line-height:25px; margin-left:5px;
+             width:100%;
+             margin: 3px 5px;
+         }
+
+         .text-style2{
+             font-style: italic;
+             color:red;
+         }
+
+         .flex-wrapper{
+             display:flex;
+             margin: 10px 0;
+             background-color: hsla(120, 100%, 85%, 1);
+             border: dashed 2px hsla(60, 30%, 50%, 1);
+             text-align: center;
+         }
+
+         .flex-wrapper div{
+             margin: 2px;
+             /* height: 50px; width: 70px; */
+             background-color: hsla(120, 70%, 50%, 1);
+         }
+
+         .container .flex-wrapper{
+             margin: 10px 5px;
+             width: 300px; height:150px;
+         }
+
+         div[class='item-style1']{
+             flex-grow: 1;
+         }
+
+         div.item-style1{
+             /* width:120px; height:40px; */
+         }
+        </style>
+    </head>
+    <body>
+        <!--
+             Si Flex Direction = row => Main Axis (Eje-x) && Cross Axis (Eje-y)
+             > Si la dirección de flex es en filas
+             > El eje principal será el eje-x, porque es horizontal, uno al lado del otro
+
+             Si Flex Direction = column => Main Axis (Eje-y) && Cross Axis (Eje-x)
+             > Si la dirección de flex es en columna (apilar uno abajo del otro)
+             > El eje principal será el eje-y osea vertical
+
+             Si Flex Wrap = wrap => Los bloques colapsan, los que no entran salen de la fila
+             Si Flex Wrap = nowrap (default) => Los elementos hijos, se amontonan para entrar juntos
+        -->
+
+        <!--
+             flex-direction: row
+             > es la dirección por defecto de los elementos de un contenedor con propiedad flex
+             > podríamos no agregar la propiedad de css
+        -->
+        <div id="main" style="width: vw; background-color:hsla(0, 70%, 40%, 1);">
+            <div class="container">
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        flex-wrap: nowrap (default)<br>
+                        justify-content:flex-start(default)<br>
+                        align-items:stretch (default)
+                    </p>
+
+                    <p class="text-style2">
+                        > align-items alínea los elementos hijos<br>
+                        en el <b>cross axis</b> y tiene el valor <b>stretch</b><br>
+                        por default, que ocupa todo el espacio libre<br>
+                        (en este caso todo el eje-y, por ser el <br>
+                        eje-x el main axis)
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-wrap:nowrap; align-items:stretch;">
+                        <div>a</div>
+                        <div>b</div>
+                        <div>c</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        flex-wrap: nowrap (default)<br>
+                        justify-content:flex-end
+                    </p>
+
+                    <p class="text-style2">
+                        > El justify-content alínea los elementos hijos<br>
+                        en el <b>main axis</b><br>
+                        (en este caso al final del eje-x, osea a la derecha<br>
+                        por ser flex-direction:row)
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-wrap:nowrap;justify-content:flex-end;">
+                        <div>a</div>
+                        <div>b</div>
+                        <div>c</div>
+                    </div>
+                </div>
+
+                <!--
+                     flex-grow: 1;
+                     > el elemento ocupa todo el espacio que puede del elemento padre
+                     > si todos los elementos hijos lo tienen => se distribuyen el espacio equitativamente
+                     > ocupan el espacio del main-axis
+                     > si es flex-direction:row => usan todo el "ancho" del bloque que los contenga
+                     > si es flex-direction:column => usan todo el "alto" del bloque padre
+                -->
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        flex-wrap: wrap<br>
+                        item a,b,d,f tienen flex-grow: 1<br>
+                        item c tiene flex-grow:5
+                    </p>
+
+                    <p class="text-style2">
+                        > flex-grow:1 hace que los elementos<br>
+                        hijo ocupen todo el espacio<br>
+                        del <b>main-axis</b> equitativamente<br>
+                        > flex-grow:5 hace que ese elemento hijo<br>
+                        ocupe 5 veces más en el main-axis<br>
+                        (en este caso crece 5 veces más en el eje-x)
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-wrap:wrap;">
+                        <div class="item-style1">a</div>
+                        <div class="item-style1">b</div>
+                        <div style="flex-grow:5;" class="item-style1">c</div>
+                        <div class="item-style1">d</div>
+                        <div class="item-style1">f</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:column<br>
+                        flex-wrap: nowrap (default)<br>
+                        items-align:stretch (default)
+                    </p>
+
+                    <p class="text-style2">
+                        > items-align alínea en el cross-axis<br>
+                        al tener <b>stretch</b> por default<br>
+                        ocupa todo el espacio posible en ese eje<br>
+                        (en este caso en el eje-y, por tener<br>
+                        el flex-direction:column)
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:column; align-items:baseline;">
+                        <div class="item-style2">a</div>
+                        <div style="align-self:center;" class="item-style2">b</div>
+                        <div style="width:150px;" class="item-style2">c</div>
+                        <div style="width:100px;" class="item-style2">d</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:column<br>
+                        flex-wrap: wrap<br>
+                        primer item con flex-grow:1
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:column; flex-wrap:wrap;">
+
+                        <div class="item-style2" style="flex-grow:1;">a</div>
+                        <div class="item-style2">b</div>
+                        <div class="item-style2">c</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        flex-wrap: wrap<br>
+                        primer item con flex-grow:1
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:row; flex-wrap: wrap;">
+                        <div class="item-style2" style="flex-grow:1;">a</div>
+                        <div class="item-style2">b</div>
+                        <div class="item-style2">c</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <!--
+                     justify-content:space-between
+                     > Agrega un espacio (margen) entre los elementos hijos
+                -->
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        flex-wrap:wrap<br>
+                        justify-content:space-between<br>
+                        align-items:center
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-wrap:wrap; justify-content:space-between; align-items:center;">
+                        <div style="height:50px;">item 1</div>
+                        <div style="height:80px;"id="item-2">item 2</div>
+                        <div style="height:120px;"id="item-3">item 3</div>
+                        <div style="height:150px;"id="item-4">item 4</div>
+                        <div>item 5</div>
+                    </div>
+                </div>
+
+                <!--
+                     justify-content:space-around
+                     > Agrega un espacio entre los elementos hijos, y también del elemento padre
+                -->
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        flex-wrap:wrap<br>
+                        justify-content:space-around<br>
+                        align-items:baseline<br>
+                        ultimo item con flex-grow:1
+                    </p>
+
+                    <p class="text-style2">
+                        > align-items con valor <b>baseline</b><br>
+                        alinea los elementos hijos respecto a su contenido<br>
+                        (para probar pusimos la prop. line-height<br>
+                        que representa el alto de cada linea,<br>
+                        en vez del height de cada div)<br>
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-wrap:wrap; justify-content:space-around;
+                                align-items:baseline;">
+                        <div style="line-height:50px;">item 1</div>
+                        <div style="line-height:100px;"id="item-3">item 3</div>
+                        <div style="line-height:140px;">item 5</div>
+                        <div style="flex-grow:1;">item 6</div>
+                    </div>
+                </div>
+
+                <!--
+                     align-items:center
+                     > Los alinea al centro de forma vertical
+                -->
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        justify-content:center<br>
+                        align-items:center
+                    </p>
+
+                    <p class="text-style2">
+                        justify-content, alínea según el <b>main axis</b><br>
+                        (en este caso centra horizontalmente)<br>
+                        y align-items, alínea según el <b>cross-axis</b><br>
+                        (en este caso centra verticalmente)
+                    </p>
+
+                    <div class="flex-wrapper" style="justify-content:center; align-items:center;">
+                        <div>item x1</div>
+                        <div>item 2</div>
+                        <div>item 3</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        align-items:center<br>
+                        justify-content:flex-start (default)
+                    </p>
+
+                    <div class="flex-wrapper" style="align-items:center; justify-content:flex-start;">
+                        <div>item 1</div>
+                        <div>item 2</div>
+                        <div>item 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        justify-content:flex-start (default)<br>
+                        align-items:stretch (default)
+                    </p>
+
+                    <p class="text-style2">
+                        > align-items con valor <b>stretch</b><br>
+                        estira los elementos hijos en el espacio<br>
+                        libre del <b>cross axis</b><br>
+                        (en este caso se estiran en el eje-y,<br>
+                        por ser el eje-x el <b>main axis</b>)
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:row; justify-content:flex-start;">
+                        <div>item 1</div>
+                        <div>item 2</div>
+                        <div>item 3</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        justify-content:flex-end<br>
+                        align-items:flex-start (default)
+                    </p>
+
+                    <p class="text-style2">
+                        align-items alínea en el <b>cross-axis</b><br>
+                        justify-content alínea en el <b>main-axis</b><br>
+                        por eso quedó alíneado arriba a la derecha
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:row; justify-content:flex-end; align-items:flex-start;">
+                        <div>item 1</div>
+                        <div>item 2</div>
+                        <div>item 3</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row-reverse
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:row-reverse;">
+                        <div>item 1</div>
+                        <div>item 2</div>
+                        <div>item 3</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction: column
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:column;">
+                        <div>item 1</div>
+                        <div>item 2</div>
+                        <div>item 3</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction: column-reverse
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:column-reverse;">
+                        <div id="item-10">item 1</div>
+                        <div id="item-11">item 2</div>
+                        <div id="item-12">item 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="block">
+                    <p class="text-style1">
+                        flex-direction:row (default)<br>
+                        align-items:stretch (default)<br>
+                        item 1 con flex-grow:1<br>
+                        item 2 con align-self:flex-end
+                    </p>
+
+                    <p class="text-style2">
+                        > align-items alínea en el <b>cross axis</b><br>
+                        a tener <b>stretch</b> ocuparán todo el espacio libre<br>
+                        en el eje-y (porque el main-axis es el eje-x)<br>
+                        > align-self, para elementos hijos específicos<br>
+                        > con flex-grow:1 el elemento hijo ocupa todo<br>
+                        el espacio libre del <b>main axis</b><br>
+                        (eje-x en este caso po ser flex-direction:row)
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:row; align-items:stretch;">
+                        <div style="flex-grow:1;">item 1</div>
+                        <div style="align-self:flex-end;">item 2</div>
+                        <div>item 3</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        item 1 con flex-grow:1, flex-shrink:1, flex-basis:200px<br>
+                        item 2 con flex-grow:2, flex-shrink:2, flex-basis:50px
+                    </p>
+
+                    <p class="text-style2">
+                        > <b>flex-grow:1</b> el elemento ocupa todo el espacio libre<br>
+                        posible en el main-axis (en este caso el eje-y)<br>
+                        > <b>flex-grow:2</b> el elemento ocupa el doble del espacio libre<br>
+                        > <b>flex-shrink:1</b> el elemento se achica cuando NO<br>
+                        hay espacio libre (en el main-axis)<br>
+                        > <b>flex-shrink:2</b> el elemento se achica el doble cuando NO<br>
+                        hay espacio libre (en el main-axis)<br>
+                        > <b>flex-basis:200px</b> el elemento tiene un tamaño por defecto<br>
+                        suponiendo que hay espacio libre (en el main-axis)
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:column;">
+                        <div style="flex-grow:1; flex-shrink:1; flex-basis: 200px;">item 1</div>
+                        <div style="flex-grow:2; flex-shrink:2; flex-basis: 50px;">item 2</div>
+                        <div>item 3</div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <p class="text-style1">
+                        item 1 con flex:1 1 200px;<br>
+                        item 2 con flex:2 2 50px;
+                    </p>
+
+                    <p class="text-style2">
+                        > <b>flex:valorGrow valorShrink valorBasis</b><br>
+                        es la manera corta de las propiedades<br>
+                        flex-grow, flex-shrink, flex-basis<br>
+                        > de <b>flex</b> el primer valor es obligatorio, mientras<br>
+                        que los otros dos se pueden obviar<br>
+                        (Ej. flex:1 ó flex:4 1 ó flex:1 1 200px)
+                    </p>
+
+                    <div class="flex-wrapper" style="flex-direction:column;">
+                        <div style="flex:1 1 200px;">item 1</div>
+                        <div style="flex:2 2 50px;">item 2</div>
+                        <div>item 3</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

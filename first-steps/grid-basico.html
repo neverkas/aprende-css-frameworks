@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+         @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+         body{
+             margin:0; padding:0;
+             font-family: 'Indie Flower', cursive;
+             font-size: 1.3rem;
+             background-color: hsla(40, 100%, 90%, 1);
+         }
+
+         .container{
+             display:grid;
+             width: 45vw;
+             height: 100vh; /* todo el alto del viewport */
+         }
+
+         .templates{
+             justify-content: space-around;
+         }
+
+         .box{
+             display:flex;
+         }
+
+         /*
+          * Template (1)
+          */
+
+         .template1{
+             grid-template-columns: 2fr 1fr;
+             grid-template-rows: 1fr 4fr 1fr;
+         }
+
+         .header{
+             /* que comience desde la columna 1 hasta la 3 */
+             grid-column: 1/3;
+             background-color: hsla(0, 100%, 40%, 1);
+         }
+
+         .content{
+             background-color: hsla(40, 100%, 50%, 1);
+             flex-direction: column;
+             row-gap: 5px; /* propiedad que funciona en flex y grid */
+         }
+
+         .article{
+             background-color: hsla(40, 100%, 5%, 1);
+             color: white;
+             flex: 1 1 /* 50px */;
+         }
+
+         .firstone{
+             flex: 2 2;
+         }
+
+
+         .footer{
+             grid-column: 1/3;
+             /* alternativa más expresiva */
+             /* grid-column-start:1; grid-column-end:3; */
+             background-color: hsla(90, 100%, 50%, 1);
+         }
+
+         .sidebar{
+             background-color: hsla(60, 100%, 60%, 1);
+         }
+
+         /*
+          * Template (2)
+          */
+         .template2{
+             /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+             grid-template-columns: repeat(4, 1fr);
+             grid-template-rows: repeat(4, 1fr);
+             grid-gap: 1px; /* agrega un espaciado entre fila-columna */
+             /* alternativa, más expresiva */
+             /* grid-column-gap: 1px; grid-row-gap: 1px; */
+         }
+
+         .picture{
+             background-color: hsla(0, 100%, 40%, 1);
+             border: dashed 1px #222;
+         }
+
+         .wallpaper{
+             /* alternativa -> grid-area: (rowStart/colStart/rowEnd/colEnd) */
+             /* grid-area: 2/2/4/4; */
+             grid-column: 2/4;
+             grid-row: 2/4;
+         }
+        </style>
+    </head>
+    <body>
+        <div class="box templates">
+
+            <!-- TEMPLATE 1 -->
+            <div class="container template1">
+                <div class="box header">header</div>
+                <div class="box content">
+                    <div class="box article firstone">article</div>
+                    <div class="box article">article</div>
+                    <div class="box article">article</div>
+                    <div class="box article">article</div>
+                </div>
+                <div class="box sidebar">sidebar</div>
+                <div class="box footer">footer</div>
+            </div>
+
+            <!-- TEMPLATE 2 -->
+            <div class="container template2">
+                <div class="box picture">pic</div>
+                <div class="box picture">pic</div>
+                <div class="box picture">pic</div>
+                <div class="box picture">pic</div>
+
+                <div class="box wallpaper">pic</div>
+
+                <div class="box picture">pic</div>
+                <div class="box picture">pic</div>
+                <div class="box picture">pic</div>
+                <div class="box picture">pic</div>
+
+                <div class="box picture">pic</div>
+                <div class="box picture">pic</div>
+                <div class="box picture">pic</div>
+                <div class="box picture">pic</div>
+            </div>
+        </div>
+
+    </body>
+</html>

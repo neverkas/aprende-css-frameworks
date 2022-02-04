@@ -1,0 +1,38 @@
+{
+    "name": "aprende-css-frameworks-css",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+        "flexbox:basico": "parcel flexbox-basico.html --port 8080",
+        "grid:basico": "parcel grid-basico.html --port 8080",
+        "grid:intermedio": "parcel grid-intermedio.html --port 8080"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/neverkas/aprende-css-frameworks.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "autoprefixer": "^10.3.1",
+        "parcel": "^2.0.0-rc.0",
+        "parcel-bundler": "^1.12.5",
+        "parcel-plugin-static-files-copy": "^2.6.0",
+        "postcss": "^8.3.6",
+        "postcss-cli": "^8.3.1"
+    },
+    "staticFiles": {
+        "staticPath": [
+            {
+                "staticPath": "assets",
+                "staticOutDir": "assets"
+            }
+        ],
+        "watcherGlob": "**"
+    },
+    "devDependencies": {
+        "typescript": "^4.3.5"
+    }
+}
