@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container mx-auto mt-5">
+        <!-- BOTONES -->
+            <div class="border-2 my-5 px-5 rounded-lg shadow-md">
+                <h1 class="text-5xl text-center uppercase text-red-500 my-2">Botones</h1>
+
+                <button class="bg-green-500 md:bg-blue-500 py-2 px-3 ml-2 hover:bg-red-500">My button</button>
+                <!--
+                     bg-red-500:
+                     > asignamos background:red con un valor de 500
+                     > Menor es el valor => mas claro/transparente se vuelve. Mayor valor => más oscuro se torna
+
+                     py-5:
+                     > agregamos un padding en top-bottom de 5 (eje y)
+
+                     px-2:
+                     > agregamos un padding en left-right de 5 (eje x)
+                -->
+                <p class="text-left text-lg sm:text-sm">
+                </p>
+            </div>
+
+            <!-- CONTAINERS -->
+            <div class="border-2 my-5 px-5 rounded-lg shadow-md">
+                <h1 class="text-5xl text-center uppercase text-red-500 my-2">Containers</h1>
+
+                <div id="block" class="md:container mx-auto">
+                    <!--
+                         container:
+                         > crea un bloque
+
+                         md:
+                         >
+
+                         mx-auto:
+                         > centramos horizontalmente (eje-x)
+                         > Agrega margen en el eje-x para centrarlo
+                    -->
+                </div>
+            </div>
+
+            <!-- BOX-BORDER && BOX-CONTENT -->
+            <div class="border-2 my-5 px-5 rounded-lg shadow-md">
+                <h1 class="text-5xl text-center uppercase text-red-500 my-2">Box-border && Box-content</h1>
+                <!--
+                     p-2:
+                     > Agregamos un padding de 2 a todos los costados (top-bottom-left-right)
+
+                     border-2:
+                     > Agrega un borde de 4 de grosor (en top-bottom-left-right)
+                -->
+
+                <div class="box-border h-16 w-16 p-2 border-2">caja 2</div>
+
+                <div class="box-content h-16 w-16 p-2 border-4">caja 1</div>
+
+                <div class="box-border md:box-content  p-2 border-4">caja 3</div>
+            </div>
+
+            <!-- DISPLAY -->
+            <div class="border-2 my-5 px-5 rounded-lg shadow-md">
+                <h1 class="text-5xl text-center uppercase text-red-500 my-2">Display</h1>
+
+            </div>
+
+        </div>
+    </body>
+</html>

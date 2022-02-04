@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container mx-auto mt-5 text-center">
+            <h1 class="uppercase text-5xl text-red-500">Flex direction</h1>
+
+            <!--
+                 flex-row:
+                 > actúa como un display:inline-block, acomoda los children uno al lado del otro
+                 > Se aplica por default al colocar 'flex', no es necesario agregarlo
+            -->
+            <h1 class="uppercase text-2xl">Flex row</h1>
+            <div class="flex flex-row">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+
+            <!--
+                 flex-col:
+                 > actúa como un display:block, apila los children uno encima del otro
+            -->
+            <h1 class="uppercase text-2xl">Flex col</h1>
+            <div class="flex flex-col">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+        </div>
+
+        <div class="container mx-auto mt-5 text-center">
+            <!--
+                 justify:
+                 > para alinear horizontalmente los elementos hijos
+            -->
+            <h1 class="uppercase text-5xl text-red-500">Justify+Align Content</h1>
+
+            <!--
+                 justify-center:
+                 > permite centrar "horizontalmente" los items
+
+                 items-start:
+                 > alinea los items arriba
+            -->
+            <h1 class="uppercase text-2xl">Justify center + items-start</h1>
+            <div class="flex justify-center items-start my-2 h-40 bg-gray-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+
+            <h1 class="uppercase text-2xl">Justify end + items-start</h1>
+            <div class="flex justify-end items-start my-2 h-40 bg-gray-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+
+            <h1 class="uppercase text-2xl">Justify center + stretch (default)</h1>
+            <div class="flex justify-center my-2 h-40 bg-blue-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+
+            <!--
+                 items-center:
+                 > permite centrar "verticalmente" los items
+            -->
+            <h1 class="uppercase text-2xl">Justify center + items-center</h1>
+            <div class="flex justify-center items-center my-2 h-60 bg-blue-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+
+            <h1 class="uppercase text-2xl">Justify center + items-end</h1>
+            <div class="flex justify-center items-end my-2 h-60 bg-blue-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+        </div>
+
+        <div class="container mx-auto mt-5 text-center">
+            <!--
+                 flex-wrap:
+                 > para alinear verticalmente los elementos hijos
+            -->
+            <h1 class="uppercase text-5xl text-red-500">Align Content</h1>
+
+            <!--
+                 content-start:
+                 > los alinea arriba
+            -->
+            <h1 class="uppercase text-2xl">Flex-wrap + content-start</h1>
+            <div class="flex flex-wrap content-start my-2 h-60 bg-red-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+
+            <!--
+                 content-center:
+                 > los alinea verticalmente al centro
+            -->
+            <h1 class="uppercase text-2xl">Flex-wrap + content-center</h1>
+            <div class="flex flex-wrap content-center my-2 h-60 bg-red-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+
+            <!--
+                 self children:
+            -->
+            <h1 class="uppercase text-5xl text-red-500">Align Self (children)</h1>
+
+            <h1 class="uppercase text-2xl">Flex-wrap + item-stretch (default) + self-end</h1>
+            <div class="flex flex-wrap my-2 h-60 bg-green-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="self-center bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+
+            <h1 class="uppercase text-2xl">Flex-wrap + item-start + self-end</h1>
+            <div class="flex flex-wrap items-start my-2 h-60 bg-green-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="self-end bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+
+            <div class="flex flex-wrap items-start my-2 h-60 bg-green-200">
+                <div class="bg-red-500 p-5 m-2">item 1</div>
+                <div class="self-center bg-blue-500 p-5 m-2">item 2</div>
+                <div class="bg-green-500 p-5 m-2">item 3</div>
+            </div>
+        </div>
+    </body>
+</html>
